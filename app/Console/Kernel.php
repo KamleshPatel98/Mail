@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function(){
             User::whereNull('email_verified_at')->delete();
-        })->hourly();
+        })->everyMinute();
     }
 
     /**
