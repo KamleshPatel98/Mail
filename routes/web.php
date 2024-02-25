@@ -64,5 +64,5 @@ if(auth()->user()&&auth()->user()->user_type=="user"){
         });
     }
 Route::get('/',function(Request $request){
-    return $request->username();
+    return $request->username();    //username is custome functionality using macro use function or class and object
 });
