@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
@@ -17,9 +17,9 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('mail',[MailController::class,'index']);
 /*
@@ -44,11 +44,25 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register');
     Route::get('/verify', 'verify');
     Route::get('/loginForm', 'loginForm');
-    Route::get('/login', 'login');
+    Route::post('/login', 'login');
 });
 
-Route::middleware(['auth', 'checkAuth'])->group(function () {
-    Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+Route::middleware(['auth','checkAuth'])->group(function () {
+    Route::get('dashboard',[AuthController::class,'index'])->name('dashboard');
+   
+    //Route::get('adduser',[EventController::class,'index']);
+    
 });
 
-Route::get('adduser',[EventController::class,'index']);
+//  if(auth()->user()->user_type=="admin"){
+//         Route::get('adduser',[EventController::class,'index']);
+//     }else 
+if(auth()->user()&&auth()->user()->user_type=="user"){
+        //Route::view('customers','customers')->name;
+        Route::get('/user', function () {
+            return "user";
+        });
+    }
+Route::get('/',function(Request $request){
+    return $request->username();
+});
