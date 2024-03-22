@@ -15,11 +15,10 @@ class CheckAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()==1){
+        if(auth()->user()&&auth()->user()->user_type=="admin"){
             return $next($request);
-        }else{
-            return "hello";
+        }else if(auth()->user()&&auth()->user()->user_type=="user"){
+            return $next($request);
         }
-       
     }
 }

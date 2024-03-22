@@ -42,11 +42,7 @@ class AuthController extends Controller
         $email=session()->get('email');
         $otp=session()->get('otp');
         if($otp==$request['otp']){
-            DB::table('users')->where('email',$email)->update(
-                [
-                    'verify'=>1,
-                ]
-                );
+            DB::table('users')->where('email',$email)->update(['verify'=>1]);
                 return "Verified";
         }else{
             return "Otp is not correct";
@@ -62,7 +58,7 @@ class AuthController extends Controller
         $password=$request['password'];
 
         if(Auth::attempt(['email' => $email, 'password' => $password])){
-            return view('dashboard')->with('success','Sign in successfully');
+            return redirect()->route('dashboard')->with('success','Sign in successfully');
         }
         else{
             return "something went wrong";

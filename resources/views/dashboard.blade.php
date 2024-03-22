@@ -182,22 +182,25 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
+                        @if (auth()->user()->user_type=="admin")
+                            <li>
+                                <a href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Charts</a>
+                            </li>
+                            <li>
+                                <a href="table.html">
+                                    <i class="fas fa-table"></i>Tables</a>
+                            </li>
+                            <li>
+                                <a href="form.html">
+                                    <i class="far fa-check-square"></i>Forms</a>
+                            </li>
+                            <li>
+                                <a href="calendar.html">
+                                    <i class="fas fa-calendar-alt"></i>Calendar</a>
+                            </li>
+                        @endif
+                            @if(auth()->user()->user_type=="user")
                         <li>
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
@@ -256,6 +259,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
