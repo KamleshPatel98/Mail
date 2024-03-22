@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
@@ -63,6 +64,12 @@ if(auth()->user()&&auth()->user()->user_type=="user"){
             return "user";
         });
     }
+
+
 Route::get('/',function(Request $request){
     return $request->username();    //username is custome functionality using macro use function or class and object
+});
+
+Route::get('/string',function(Request $request){
+    return Str::stringlength("lengths",6);    //username is custome functionality using macro use function or class and object
 });
