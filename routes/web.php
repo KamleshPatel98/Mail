@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LeafletController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,7 +52,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['auth','checkAuth'])->group(function () {
     Route::get('dashboard',[AuthController::class,'index'])->name('dashboard');
-   
+    
     //Route::get('adduser',[EventController::class,'index']);
     
 });
@@ -73,3 +75,6 @@ Route::get('/',function(Request $request){
 Route::get('/string',function(Request $request){
     return Str::stringlength("lengths",6);    //username is custome functionality using macro use function or class and object
 });
+
+//Map Provide
+Route::resource('leaflet',LeafletController::class);
