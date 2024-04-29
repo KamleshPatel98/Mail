@@ -1,0 +1,1 @@
+<h3>Comapny2 name is {{ $company2 }}</h3>
