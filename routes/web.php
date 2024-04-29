@@ -78,3 +78,7 @@ Route::get('/string',function(Request $request){
 
 //Map Provide
 Route::resource('leaflet',LeafletController::class);
+
+//global variable route
+Route::view('company1','globalVariable.company1');
+Route::view('company2','globalVariable.company2');
