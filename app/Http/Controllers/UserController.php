@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\DemoMail;
 use Mail;
 
+
 class UserController extends Controller
 {
     /**
@@ -124,7 +125,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
