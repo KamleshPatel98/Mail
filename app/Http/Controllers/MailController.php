@@ -15,9 +15,10 @@ class MailController extends Controller
             'body'=>'This is body',
         ];
 
-        //Mail::to('karan52170@gmail.com')->send(new DemoMail($mailData));
+        //Mail::to('kamleshp52170@gmail.com')->send(new DemoMail($mailData));
+        Mail::to('patelbrothers52170@gmail.com')->send(new DemoMail($mailData));
         //DemoMailJob::dispatch($mailData['title'],$mailData['body']);
-        DemoMailJob::dispatch($mailData);
+        //DemoMailJob::dispatch($mailData);
         dd("Email send Successfuly");
     }
 }
